@@ -52,7 +52,7 @@ function App() {
               <h1 style={{ color: 'black' }}>Markdown Editor</h1>
               <MarkdownEditor
                 value={note[currentIndex].desc}
-                height="70vh"
+                height="70vh" width='70vw'
                 onChange={(value, viewUpdate) => {
                   let newValue = value;
                   let newTitle = value.split('\n')[0] || "# Enter Your Title";
