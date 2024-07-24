@@ -49,7 +49,7 @@ function App() {
         <div className="right">
           {currentIndex != null ? (
             <div className="markdown-editor">
-              <h1 style={{ color: 'black' }}>Markdown Editor</h1>
+              <h1 style={{ color: 'black',textAlign:'center' }}>Markdown Editor</h1>
               <MarkdownEditor
                 value={note[currentIndex].desc}
                 height="70vh" width='70vw'
