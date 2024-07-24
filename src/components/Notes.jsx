@@ -7,6 +7,7 @@ function Notes({ title, onDelete, index, setCurrentIndex }) {
       <h2 onClick={() => setCurrentIndex(index)}>
         {title.length <= 18 ? title : title.substr(0, 18) + "..."}
       </h2>
+      
       <button onClick={() => onDelete(index)}>delete</button>
     </div>
   )

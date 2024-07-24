@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: "Oswald", sans-serif;
   background: linear-gradient(to right, #bdc3c7, #2c3e50);
   height: 100vh;
   display: flex;
@@ -20,7 +21,7 @@ body {
 
 .left {
   width: 20%;
-  background: linear-gradient(to right, #bdc3c7, #2c3e50);
+   background: linear-gradient(to right, #bdc3c7, #2c3e50);
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -121,6 +122,15 @@ body {
   font-size: 1.2em;
   text-align: center;
   margin-top: 20%;
+}
+.save{
+  background-color: #080a0c;
+  border: none;
+  color: white;
+  padding: 1rem 2rem;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 /* Responsive Design */

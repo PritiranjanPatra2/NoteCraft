@@ -1,11 +1,12 @@
-import { useState } from 'react'
-import './App.css'
-import Notes from './components/Notes'
+import { useState } from 'react';
+import './App.css';
+import Notes from './components/Notes';
 import MarkdownEditor from '@uiw/react-markdown-editor';
 
 function App() {
   const [note, setNote] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(null);
+  const [save, setSave] = useState(false);
 
   function addNote() {
     let copyNote = [...note];
@@ -33,7 +34,7 @@ function App() {
     <>
       <div className="con">
         <div className="left">
-          <button onClick={addNote}>Add Note +</button>
+          <button onClick={addNote}>Add Note</button>
           {note.map((item, index) => (
             <Notes
               key={index}
@@ -46,24 +47,33 @@ function App() {
           ))}
         </div>
         <div className="right">
-         
           {currentIndex != null ? (
-            
             <div className="markdown-editor">
-               <h1 style={{color:'black'}}>Markdown Editor</h1>
+              <h1 style={{ color: 'black' }}>Markdown Editor</h1>
               <MarkdownEditor
                 value={note[currentIndex].desc}
-                height="80vh"
+                height="70vh"
                 onChange={(value, viewUpdate) => {
                   let newValue = value;
                   let newTitle = value.split('\n')[0] || "# Enter Your Title";
                   let newArr = [...note];
                   newArr[currentIndex].title = newTitle;
                   newArr[currentIndex].desc = newValue;
+                  setSave(true);
                   setNote(newArr);
                 }}
                 placeholder="# Enter Your Title"
               />
+              {save && (
+                <button className='save' onClick={() => {
+                  setSave(false);
+                  // console.log('Note saved:', note[currentIndex]);
+                  alert(note[currentIndex].title+" saved Succesfully");
+                  
+                }}>
+                  Save
+                </button>
+              )}
             </div>
           ) : (
             <div className="empty-state">Click on a note to edit it</div>
@@ -71,7 +81,7 @@ function App() {
         </div>
       </div>
     </>
-  )
+  );
 }
 
 export default App;
